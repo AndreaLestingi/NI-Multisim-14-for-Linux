@@ -441,9 +441,6 @@ if [ -f "$ACTIVATOR_PATH" ]; then
     WINEPREFIX="$HOME/.multisim32" WINEDEBUG=-all \
         wine "$ACTIVATOR_PATH" > /tmp/activator.log 2>&1 &
     ACTIVATOR_PID=$!
-    echo "Activator started (PID: $ACTIVATOR_PID). Waiting 10 seconds for activation..."
-    sleep 10
-    kill $ACTIVATOR_PID 2>/dev/null || true
     echo "Activator closed."
 else
     echo "ERROR: Failed to download activator. Please check your internet connection."
