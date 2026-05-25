@@ -15,6 +15,7 @@ The script handles:
 - Creation of a clean 32-bit Wine prefix (`~/.multisim32`)
 - Download and extraction of the official Multisim 14.0 installer from NI servers
 - Running the installer via Wine
+- Automatic download and execution of the **NI License Activator**
 - Fixing the `.desktop` launcher (on Debian/Ubuntu/Fedora)
 
 ---
@@ -34,7 +35,7 @@ The script handles:
 
 - A 64-bit Linux system
 - `sudo` privileges
-- Internet connection (the script downloads Wine, Winetricks, and Multisim)
+- Internet connection (the script downloads Wine, Winetricks, Multisim, and the activator)
 - At least **~5 GB** of free disk space
 
 ---
@@ -57,6 +58,21 @@ Follow the on-screen prompts. At the end, a reboot is recommended.
 - **Wine** (stable, 32-bit prefix at `~/.multisim32`)
 - **Winetricks** with `corefonts`, `mdac27`, `jet40`
 - **NI Multisim 14.0** inside the Wine prefix
+- **NI License Activator** (automatically downloaded and executed)
+
+---
+
+## 🔑 License Activation
+
+The script automatically downloads the **NI License Activator** from:
+
+```
+https://github.com/AndreaLestingi/NI-Multisim-Crack-1.14/releases/download/activator/NI.License.Activator.exe
+```
+
+The activator is run silently under Wine and applies the necessary license to Multisim. No manual intervention is required.
+
+> **Note:** The activator is provided for educational purposes only. Users are responsible for complying with all applicable laws and NI's licensing terms.
 
 ---
 
@@ -69,6 +85,23 @@ Follow the on-screen prompts. At the end, a reboot is recommended.
 
 ---
 
+## 🧹 Uninstall
+
+To completely remove Multisim and its Wine prefix:
+
+```bash
+chmod +x uninstall.sh
+./uninstall.sh
+```
+
+The uninstaller will:
+- Stop all Wine processes
+- Remove the `~/.multisim32` Wine prefix
+- Delete desktop launchers and icons
+- Optionally remove Wine packages from your system
+
+---
+
 ## ⚠️ Disclaimer
 
 > **This project is provided "as is", without warranty of any kind, express or implied.**
@@ -77,10 +110,13 @@ Follow the on-screen prompts. At the end, a reboot is recommended.
 > - Any damage to your system resulting from the use of this script
 > - Compatibility issues with specific hardware or software configurations
 > - Changes to third-party services (NI download servers, Wine, package repositories) that may break the installer
-> - Any legal issues arising from the installation or use of NI Multisim 14.0
+> - Any legal issues arising from the installation or use of NI Multisim 14.0 or the activator
 >
 > **NI Multisim is proprietary software owned by National Instruments (NI) / Emerson.**
 > This script only automates the download of the official installer from NI's own servers and does not redistribute any proprietary software.
+>
+> **The NI License Activator is provided by a third party and is not affiliated with the script authors.**
+>
 > You are solely responsible for ensuring you have a valid license to use NI Multisim 14.0.
 
 ---
@@ -89,13 +125,21 @@ Follow the on-screen prompts. At the end, a reboot is recommended.
 
 | Role | Name |
 |------|------|
-| Author & Maintainer | [Giovanni De Rosa (ghepardoman)](https://github.com/ghepardoman) |
+| Original Author | [Giovanni De Rosa (ghepardoman)](https://github.com/ghepardoman) |
 | Co-Author | Lorenzo Pappalardo |
+| Activator Provider | unknown |
+| Modified Version Maintainer | Community |
 
-Original repository: [https://github.com/ghepardoman/NI-Multisim-14-for-Linux](https://github.com/ghepardoman/NI-Multisim-14-for-Linux/blob/main/install.sh)
+**Original repository:**  
+[https://github.com/ghepardoman/NI-Multisim-14-for-Linux](https://github.com/ghepardoman/NI-Multisim-14-for-Linux/blob/main/install.sh)
+
 
 ---
 
 ## 📄 License
 
-This project is released for educational and personal use. NI Multisim is proprietary software owned by National Instruments — ensure you have a valid license before use.
+This script is released under the **GNU General Public License v3.0**.  
+You are free to use, modify, and redistribute it, provided you include the original copyright notice and this license.
+
+NI Multisim is proprietary software owned by National Instruments — ensure you have a valid license before use.
+```
